@@ -1,5 +1,5 @@
 import { Hero } from "@/components/Hero";
-import { Marquee } from "@/components/Marquee";
+import { OccasionsBand } from "@/components/OccasionsBand";
 import { Section, SectionHeading } from "@/components/Section";
 import { ServiceHighlights } from "@/components/ServiceHighlights";
 import { Card } from "@/components/Card";
@@ -23,10 +23,17 @@ export default function Home() {
     <>
       <Hero imageSrc={heroImage} videoSrc={heroVideo} />
 
-      <Marquee />
+      <OccasionsBand />
 
-      <Section border={false} spacing="none">
-        <ServiceHighlights />
+      <Section>
+        <SectionHeading
+          title="What we create"
+          description="From a single statement backdrop to a fully transformed venue, every service is tailored to your event and your story."
+          align="center"
+        />
+        <div className="mt-14">
+          <ServiceHighlights />
+        </div>
       </Section>
 
       <Section tone="soft">

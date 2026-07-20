@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/Button";
 import { MagneticButton } from "@/components/MagneticButton";
+import { HandwriteText } from "@/components/HandwriteText";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -89,10 +90,15 @@ export function Hero({
             Event Styling, Backdrops &amp; Decor
           </motion.span>
 
-          <motion.h1 variants={item} className="flex flex-col items-center leading-none">
-            <span className="mb-2 font-sans text-sm uppercase tracking-[0.22em] text-ivory/85 sm:text-base">The</span>
-            <span className="font-script text-6xl sm:text-8xl">Dream Decor</span>
-          </motion.h1>
+          <h1 className="flex flex-col items-center leading-none">
+            <motion.span
+              variants={item}
+              className="mb-3 font-sans text-sm uppercase tracking-[0.22em] text-ivory/85 sm:text-base"
+            >
+              The
+            </motion.span>
+            <HandwriteText text="Dream Decor" delay={0.55} className="font-script text-6xl sm:text-8xl" />
+          </h1>
 
           <motion.p variants={item} className="mt-8 max-w-xl text-balance text-base leading-relaxed text-ivory/80 sm:text-lg">
             Bespoke event styling, backdrops, and full decor packages for weddings, birthdays, baby showers,
