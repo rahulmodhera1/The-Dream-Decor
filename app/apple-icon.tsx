@@ -1,9 +1,12 @@
 import { ImageResponse } from "next/og";
+import { resolveLogoDataUri } from "@/lib/media";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
 export default function AppleIcon() {
+  const logo = resolveLogoDataUri();
+
   return new ImageResponse(
     (
       <div
@@ -28,16 +31,20 @@ export default function AppleIcon() {
             background: "#2B2A28",
           }}
         >
-          <span
-            style={{
-              color: "#F6F2EC",
-              fontSize: 74,
-              fontFamily: "Georgia, serif",
-              letterSpacing: -3,
-            }}
-          >
-            DD
-          </span>
+          {logo ? (
+            <img src={logo} width={120} height={120} style={{ objectFit: "contain" }} alt="" />
+          ) : (
+            <span
+              style={{
+                color: "#F6F2EC",
+                fontSize: 74,
+                fontFamily: "Georgia, serif",
+                letterSpacing: -3,
+              }}
+            >
+              DD
+            </span>
+          )}
         </div>
       </div>
     ),

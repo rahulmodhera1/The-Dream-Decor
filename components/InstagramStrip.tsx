@@ -2,6 +2,7 @@ import { galleryItems, siteConfig } from "@/lib/data";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { RevealGroup, RevealItem } from "@/components/Reveal";
 import { Button } from "@/components/Button";
+import { resolveImage } from "@/lib/media";
 
 const tiles = galleryItems.slice(0, 6);
 
@@ -18,7 +19,12 @@ export function InstagramStrip() {
               className="focus-ring group relative block aspect-square overflow-hidden rounded-lg"
               aria-label={`View more like "${item.title}" on Instagram`}
             >
-              <PlaceholderMedia hue={item.hue} className="transition-transform duration-700 ease-out group-hover:scale-110" />
+              <PlaceholderMedia
+                src={resolveImage(`portfolio/${item.slug}`)}
+                alt={item.title}
+                hue={item.hue}
+                className="transition-transform duration-700 ease-out group-hover:scale-110"
+              />
               <div className="absolute inset-0 flex items-center justify-center bg-charcoal/0 opacity-0 transition-all duration-300 group-hover:bg-charcoal/40 group-hover:opacity-100">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <rect x="2" y="2" width="20" height="20" rx="5" stroke="#F6F2EC" strokeWidth="1.5" />

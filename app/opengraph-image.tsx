@@ -1,10 +1,13 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/data";
+import { resolveLogoDataUri } from "@/lib/media";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpengraphImage() {
+  const logo = resolveLogoDataUri();
+
   return new ImageResponse(
     (
       <div
@@ -31,7 +34,11 @@ export default function OpengraphImage() {
             marginBottom: 28,
           }}
         >
-          <span style={{ color: "#F6F2EC", fontSize: 40, fontFamily: "Georgia, serif" }}>DD</span>
+          {logo ? (
+            <img src={logo} width={64} height={64} style={{ objectFit: "contain" }} alt="" />
+          ) : (
+            <span style={{ color: "#F6F2EC", fontSize: 40, fontFamily: "Georgia, serif" }}>DD</span>
+          )}
         </div>
         <span
           style={{

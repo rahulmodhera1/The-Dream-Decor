@@ -3,6 +3,8 @@ import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/Section";
 import { GalleryGrid } from "@/components/GalleryGrid";
 import { CtaBanner } from "@/components/CtaBanner";
+import { galleryItems } from "@/lib/data";
+import { resolveImage } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -11,6 +13,11 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPage() {
+  const items = galleryItems.map((item) => ({
+    ...item,
+    src: resolveImage(`portfolio/${item.slug}`),
+  }));
+
   return (
     <>
       <PageHeader
@@ -21,7 +28,7 @@ export default function PortfolioPage() {
       />
 
       <Section border={false} spacing="bottom-only">
-        <GalleryGrid />
+        <GalleryGrid items={items} />
       </Section>
 
       <CtaBanner

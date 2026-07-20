@@ -9,7 +9,7 @@ import { Button } from "@/components/Button";
 import { MobileMenu } from "@/components/MobileMenu";
 import { cn } from "@/lib/utils";
 
-export function Nav() {
+export function Nav({ logoSrc }: { logoSrc?: string | null }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
@@ -35,7 +35,7 @@ export function Nav() {
         )}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-8 lg:px-12">
-          <Logo className={cn(transparent && "text-ivory")} />
+          <Logo logoSrc={logoSrc} className={cn(transparent && "text-ivory")} />
 
           <nav
             className={cn(

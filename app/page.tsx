@@ -10,13 +10,18 @@ import { CtaBanner } from "@/components/CtaBanner";
 import { Button } from "@/components/Button";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { galleryItems, siteConfig } from "@/lib/data";
+import { resolveImage, resolveVideo } from "@/lib/media";
 
 const teaserItems = galleryItems.slice(0, 4);
 
 export default function Home() {
+  const heroImage = resolveImage("hero/hero");
+  const heroVideo = resolveVideo("hero/hero");
+  const studioImage = resolveImage("about/studio");
+
   return (
     <>
-      <Hero />
+      <Hero imageSrc={heroImage} videoSrc={heroVideo} />
 
       <Marquee />
 
@@ -35,6 +40,8 @@ export default function Home() {
             <RevealItem key={item.id}>
               <Card href="/portfolio" className="aspect-[3/4] overflow-hidden p-0">
                 <PlaceholderMedia
+                  src={resolveImage(`portfolio/${item.slug}`)}
+                  alt={item.title}
                   hue={item.hue}
                   label={item.title}
                   caption={item.tags}
@@ -57,7 +64,14 @@ export default function Home() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal>
             <div className="aspect-[4/5] overflow-hidden rounded-2xl">
-              <PlaceholderMedia hue={26} label="The Dream Decor Studio" sample className="h-full w-full" />
+              <PlaceholderMedia
+                src={studioImage}
+                alt="The Dream Decor studio"
+                hue={26}
+                label="The Dream Decor Studio"
+                sample
+                className="h-full w-full"
+              />
             </div>
           </Reveal>
           <Reveal delay={0.1}>

@@ -122,6 +122,7 @@ export const occasions: Occasion[] = [
 
 export type GalleryItem = {
   id: string;
+  slug: string;
   title: string;
   category: "wedding" | "birthday" | "baby-shower" | "corporate" | "cultural" | "backdrop";
   tags: string;
@@ -138,22 +139,23 @@ export const galleryCategories: { value: GalleryItem["category"] | "all"; label:
   { value: "backdrop", label: "Backdrops" },
 ];
 
-// Placeholder gallery set — swap `hue` styling for real photography via next/image.
+// Placeholder gallery set. Drop matching photos into public/media/portfolio/
+// (filename = slug below) and they'll replace the gradient placeholders automatically.
 export const galleryItems: GalleryItem[] = [
-  { id: "g1", title: "Blush Garden Wedding", category: "wedding", tags: "Reception · Surrey, BC", hue: 18 },
-  { id: "g2", title: "Golden Hour Mandap", category: "cultural", tags: "Ceremony · Cloverdale, BC", hue: 38 },
-  { id: "g3", title: "Pastel Baby Shower Arch", category: "baby-shower", tags: "Balloon Install", hue: 200 },
-  { id: "g4", title: "Sequin Backdrop, Milestone 30th", category: "birthday", tags: "Backdrop", hue: 320 },
-  { id: "g5", title: "Corporate Gala Stage", category: "corporate", tags: "Step & Repeat", hue: 230 },
-  { id: "g6", title: "Sangeet Night Florals", category: "cultural", tags: "Stage Styling", hue: 12 },
-  { id: "g7", title: "Boho Bridal Lounge", category: "wedding", tags: "Lounge Styling", hue: 28 },
-  { id: "g8", title: "Gender Reveal Balloon Arch", category: "baby-shower", tags: "Backdrop", hue: 190 },
-  { id: "g9", title: "Ivory & Gold Reception", category: "wedding", tags: "Tablescape", hue: 44 },
-  { id: "g10", title: "Neon Welcome Sign", category: "backdrop", tags: "Custom Signage", hue: 340 },
-  { id: "g11", title: "Dessert Table Styling", category: "birthday", tags: "Full Decor Package", hue: 8 },
-  { id: "g12", title: "Diwali Themed Décor", category: "cultural", tags: "Full Decor Package", hue: 34 },
-  { id: "g13", title: "Quinceañera Court of Honor", category: "birthday", tags: "Full Decor Package", hue: 300 },
-  { id: "g14", title: "Product Launch Backdrop", category: "corporate", tags: "Backdrop", hue: 210 },
+  { id: "g1", slug: "blush-garden-wedding", title: "Blush Garden Wedding", category: "wedding", tags: "Reception · Surrey, BC", hue: 18 },
+  { id: "g2", slug: "golden-hour-mandap", title: "Golden Hour Mandap", category: "cultural", tags: "Ceremony · Cloverdale, BC", hue: 38 },
+  { id: "g3", slug: "pastel-baby-shower-arch", title: "Pastel Baby Shower Arch", category: "baby-shower", tags: "Balloon Install", hue: 200 },
+  { id: "g4", slug: "sequin-backdrop-30th", title: "Sequin Backdrop, Milestone 30th", category: "birthday", tags: "Backdrop", hue: 320 },
+  { id: "g5", slug: "corporate-gala-stage", title: "Corporate Gala Stage", category: "corporate", tags: "Step & Repeat", hue: 230 },
+  { id: "g6", slug: "sangeet-night-florals", title: "Sangeet Night Florals", category: "cultural", tags: "Stage Styling", hue: 12 },
+  { id: "g7", slug: "boho-bridal-lounge", title: "Boho Bridal Lounge", category: "wedding", tags: "Lounge Styling", hue: 28 },
+  { id: "g8", slug: "gender-reveal-balloon-arch", title: "Gender Reveal Balloon Arch", category: "baby-shower", tags: "Backdrop", hue: 190 },
+  { id: "g9", slug: "ivory-gold-reception", title: "Ivory & Gold Reception", category: "wedding", tags: "Tablescape", hue: 44 },
+  { id: "g10", slug: "neon-welcome-sign", title: "Neon Welcome Sign", category: "backdrop", tags: "Custom Signage", hue: 340 },
+  { id: "g11", slug: "dessert-table-styling", title: "Dessert Table Styling", category: "birthday", tags: "Full Decor Package", hue: 8 },
+  { id: "g12", slug: "diwali-themed-decor", title: "Diwali Themed Décor", category: "cultural", tags: "Full Decor Package", hue: 34 },
+  { id: "g13", slug: "quinceanera-court-of-honor", title: "Quinceañera Court of Honor", category: "birthday", tags: "Full Decor Package", hue: 300 },
+  { id: "g14", slug: "product-launch-backdrop", title: "Product Launch Backdrop", category: "corporate", tags: "Backdrop", hue: 210 },
 ];
 
 export type Testimonial = {

@@ -6,6 +6,7 @@ import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { occasions, services } from "@/lib/data";
+import { resolveImage } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -32,6 +33,10 @@ function OccasionIcon({ slug }: { slug: string }) {
 const [eventStyling, backdrops, fullDecorPackages] = services;
 
 export default function ServicesPage() {
+  const eventStylingImage = resolveImage(`services/${eventStyling.slug}`);
+  const backdropsImage = resolveImage(`services/${backdrops.slug}`);
+  const fullDecorPackagesImage = resolveImage(`services/${fullDecorPackages.slug}`);
+
   return (
     <>
       <PageHeader
@@ -44,7 +49,14 @@ export default function ServicesPage() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal>
             <div className="aspect-[4/3] overflow-hidden rounded-2xl">
-              <PlaceholderMedia hue={20} label={eventStyling.title} sample className="h-full w-full" />
+              <PlaceholderMedia
+                src={eventStylingImage}
+                alt={eventStyling.title}
+                hue={20}
+                label={eventStyling.title}
+                sample
+                className="h-full w-full"
+              />
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -67,7 +79,14 @@ export default function ServicesPage() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal className="lg:order-2">
             <div className="aspect-[4/3] overflow-hidden rounded-2xl">
-              <PlaceholderMedia hue={60} label={backdrops.title} sample className="h-full w-full" />
+              <PlaceholderMedia
+                src={backdropsImage}
+                alt={backdrops.title}
+                hue={60}
+                label={backdrops.title}
+                sample
+                className="h-full w-full"
+              />
             </div>
           </Reveal>
           <Reveal delay={0.1} className="lg:order-1">
@@ -88,7 +107,7 @@ export default function ServicesPage() {
 
       <Section id={fullDecorPackages.slug} tone="charcoal" className="relative scroll-mt-24 overflow-hidden">
         <div className="absolute inset-0">
-          <PlaceholderMedia hue={150} className="h-full w-full" />
+          <PlaceholderMedia src={fullDecorPackagesImage} alt={fullDecorPackages.title} hue={150} className="h-full w-full" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/85 to-charcoal/50" />
         </div>
 

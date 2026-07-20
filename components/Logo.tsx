@@ -1,7 +1,24 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-export function Monogram({ className }: { className?: string }) {
+export function Monogram({ className, src }: { className?: string; src?: string | null }) {
+  if (src) {
+    // Local SVGs render as a plain <img>: vector art doesn't benefit from
+    // next/image's raster optimization pipeline, so this skips it entirely.
+    if (src.endsWith(".svg")) {
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={src} alt="" className={cn("h-9 w-9 object-contain", className)} />
+      );
+    }
+    return (
+      <span className={cn("relative inline-block h-9 w-9", className)}>
+        <Image src={src} alt="" fill sizes="48px" className="object-contain" />
+      </span>
+    );
+  }
+
   return (
     <svg
       viewBox="0 0 64 64"
@@ -54,10 +71,10 @@ export function Wordmark({ className }: { className?: string }) {
   );
 }
 
-export function StackedLockup({ className }: { className?: string }) {
+export function StackedLockup({ className, logoSrc }: { className?: string; logoSrc?: string | null }) {
   return (
     <div className={cn("flex flex-col items-center text-center", className)}>
-      <Monogram className="mb-4 h-14 w-14 text-current" />
+      <Monogram src={logoSrc} className="mb-4 h-14 w-14 text-current" />
       <span className="text-label mb-1">The</span>
       <span className="font-script text-5xl leading-none sm:text-6xl">Dream Decor</span>
       <span className="text-label mt-4 opacity-70">Event Styling &amp; Design · Surrey, BC</span>
@@ -65,7 +82,7 @@ export function StackedLockup({ className }: { className?: string }) {
   );
 }
 
-export function Logo({ className }: { className?: string }) {
+export function Logo({ className, logoSrc }: { className?: string; logoSrc?: string | null }) {
   return (
     <Link
       href="/"
@@ -75,7 +92,7 @@ export function Logo({ className }: { className?: string }) {
       )}
       aria-label="The Dream Decor, home"
     >
-      <Monogram className="h-8 w-8" />
+      <Monogram src={logoSrc} className="h-8 w-8" />
       <Wordmark />
     </Link>
   );

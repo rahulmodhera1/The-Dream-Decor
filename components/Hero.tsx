@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/Button";
 import { MagneticButton } from "@/components/MagneticButton";
 
@@ -17,12 +18,25 @@ const item = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: EASE } },
 };
 
-export function Hero() {
+export function Hero({
+  imageSrc,
+  videoSrc,
+}: {
+  imageSrc?: string | null;
+  videoSrc?: string | null;
+}) {
   const ref = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) videoRef.current.pause();
+  }, []);
 
   return (
     <section
@@ -30,20 +44,38 @@ export function Hero() {
       className="relative flex h-[100svh] min-h-[640px] w-full items-center justify-center overflow-hidden bg-charcoal text-ivory"
     >
       <motion.div style={{ y: bgY }} className="absolute inset-0">
-        <div
-          className="animate-drift absolute inset-0 opacity-80"
-          style={{
-            background:
-              "radial-gradient(circle at 22% 28%, rgba(205,168,119,0.35), transparent 45%), radial-gradient(circle at 78% 18%, rgba(179,135,79,0.28), transparent 42%), radial-gradient(circle at 50% 85%, rgba(246,242,236,0.1), transparent 55%)",
-          }}
-        />
-        <div
-          className="animate-drift-slow absolute inset-0 opacity-60"
-          style={{
-            background:
-              "radial-gradient(circle at 82% 72%, rgba(179,135,79,0.22), transparent 40%), radial-gradient(circle at 12% 78%, rgba(246,242,236,0.08), transparent 45%)",
-          }}
-        />
+        {videoSrc ? (
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={imageSrc ?? undefined}
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src={videoSrc} />
+          </video>
+        ) : imageSrc ? (
+          <Image src={imageSrc} alt="" fill priority sizes="100vw" className="object-cover" />
+        ) : (
+          <>
+            <div
+              className="animate-drift absolute inset-0 opacity-80"
+              style={{
+                background:
+                  "radial-gradient(circle at 22% 28%, rgba(205,168,119,0.35), transparent 45%), radial-gradient(circle at 78% 18%, rgba(179,135,79,0.28), transparent 42%), radial-gradient(circle at 50% 85%, rgba(246,242,236,0.1), transparent 55%)",
+              }}
+            />
+            <div
+              className="animate-drift-slow absolute inset-0 opacity-60"
+              style={{
+                background:
+                  "radial-gradient(circle at 82% 72%, rgba(179,135,79,0.22), transparent 40%), radial-gradient(circle at 12% 78%, rgba(246,242,236,0.08), transparent 45%)",
+              }}
+            />
+          </>
+        )}
         <div className="bg-grain absolute inset-0" />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/55 to-charcoal/35" />
       </motion.div>

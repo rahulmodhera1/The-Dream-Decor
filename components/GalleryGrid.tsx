@@ -2,18 +2,19 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { galleryCategories, galleryItems, type GalleryItem } from "@/lib/data";
+import { galleryCategories, type GalleryItem } from "@/lib/data";
+import type { GalleryItemWithMedia } from "@/lib/media";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { Lightbox } from "@/components/Lightbox";
 import { cn } from "@/lib/utils";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-export function GalleryGrid() {
+export function GalleryGrid({ items }: { items: GalleryItemWithMedia[] }) {
   const [filter, setFilter] = useState<GalleryItem["category"] | "all">("all");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const filtered = filter === "all" ? galleryItems : galleryItems.filter((i) => i.category === filter);
+  const filtered = filter === "all" ? items : items.filter((i) => i.category === filter);
 
   const navigate = (direction: 1 | -1) => {
     setOpenIndex((curr) => {
@@ -62,6 +63,8 @@ export function GalleryGrid() {
             >
               <div className={i % 5 === 0 ? "aspect-[3/4]" : i % 3 === 0 ? "aspect-square" : "aspect-[4/5]"}>
                 <PlaceholderMedia
+                  src={item.src}
+                  alt={item.title}
                   hue={item.hue}
                   sample
                   className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-105"

@@ -1,24 +1,47 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * Stand-in visual for real photography. Renders a brand-toned gradient with
- * corner ornament + label so the layout reads as intentional, not broken.
- * Swap with next/image once real photos are available — the `hue` prop just
- * varies the placeholder tone per item.
+ * Renders real photography (via next/image, responsive srcset) when `src` is
+ * resolved from public/media/, otherwise falls back to a brand-toned gradient
+ * placeholder with a corner ornament so the layout still reads as intentional.
  */
 export function PlaceholderMedia({
+  src,
+  alt,
   hue = 30,
   label,
   caption,
   sample = false,
+  priority = false,
+  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
   className,
 }: {
+  src?: string | null;
+  alt?: string;
   hue?: number;
   label?: string;
   caption?: string;
   sample?: boolean;
+  priority?: boolean;
+  sizes?: string;
   className?: string;
 }) {
+  if (src) {
+    return (
+      <div className={cn("bg-grain relative h-full w-full overflow-hidden", className)}>
+        <Image
+          src={src}
+          alt={alt || label || ""}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(

@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
-import type { GalleryItem } from "@/lib/data";
+import type { GalleryItemWithMedia } from "@/lib/media";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -13,7 +13,7 @@ export function Lightbox({
   onClose,
   onNavigate,
 }: {
-  items: GalleryItem[];
+  items: GalleryItemWithMedia[];
   index: number | null;
   onClose: () => void;
   onNavigate: (direction: 1 | -1) => void;
@@ -103,7 +103,11 @@ export function Lightbox({
             onClick={(e) => e.stopPropagation()}
           >
             <div className="aspect-[4/5] overflow-hidden rounded-lg sm:aspect-[16/10]">
-              <PlaceholderMedia hue={item.hue} label={item.title} caption={item.tags} className="h-full w-full" />
+              <PlaceholderMedia src={item.src} alt={item.title} hue={item.hue} sample className="h-full w-full" />
+            </div>
+            <div className="mt-4 text-center">
+              <p className="font-display text-lg italic text-ivory">{item.title}</p>
+              <p className="text-label mt-1 text-ivory/70">{item.tags}</p>
             </div>
           </motion.div>
         </motion.div>

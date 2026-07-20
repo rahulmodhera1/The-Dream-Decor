@@ -4,6 +4,7 @@ import { cormorant, inter, parisienne } from "@/lib/fonts";
 import { siteConfig } from "@/lib/data";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { resolveLogoImage } from "@/lib/media";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -50,15 +51,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const logoSrc = resolveLogoImage();
+
   return (
     <html
       lang="en"
       className={`${cormorant.variable} ${parisienne.variable} ${inter.variable} antialiased`}
     >
       <body className="flex min-h-screen flex-col bg-ivory font-sans text-charcoal">
-        <Nav />
+        <Nav logoSrc={logoSrc} />
         <main className="flex-1">{children}</main>
-        <Footer />
+        <Footer logoSrc={logoSrc} />
         <Toaster
           position="bottom-center"
           toastOptions={{

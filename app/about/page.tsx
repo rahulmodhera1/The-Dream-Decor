@@ -4,6 +4,7 @@ import { Section, SectionHeading } from "@/components/Section";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
+import { resolveImage } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "About",
@@ -42,6 +43,9 @@ const serviceCities = [
 ];
 
 export default function AboutPage() {
+  const studioImage = resolveImage("about/studio");
+  const serviceAreaImage = resolveImage("about/service-area");
+
   return (
     <>
       <PageHeader
@@ -54,7 +58,14 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal>
             <div className="aspect-[4/5] overflow-hidden rounded-2xl">
-              <PlaceholderMedia hue={30} label="Behind the Scenes" sample className="h-full w-full" />
+              <PlaceholderMedia
+                src={studioImage}
+                alt="The Dream Decor studio"
+                hue={30}
+                label="Behind the Scenes"
+                sample
+                className="h-full w-full"
+              />
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -116,7 +127,14 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="aspect-square overflow-hidden rounded-2xl">
-              <PlaceholderMedia hue={205} label="Serving the Lower Mainland" caption="Surrey, BC & Beyond" className="h-full w-full" />
+              <PlaceholderMedia
+                src={serviceAreaImage}
+                alt="Serving the Lower Mainland"
+                hue={205}
+                label="Serving the Lower Mainland"
+                caption="Surrey, BC & Beyond"
+                className="h-full w-full"
+              />
             </div>
           </Reveal>
         </div>
