@@ -32,7 +32,7 @@ export default function AppleIcon() {
           }}
         >
           {logo ? (
-            <img src={logo} width={130} height={56} style={{ objectFit: "contain" }} alt="" />
+            <img src={logo} width={124} height={59} style={{ objectFit: "contain" }} alt="" />
           ) : (
             <span
               style={{

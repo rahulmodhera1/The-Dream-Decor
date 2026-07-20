@@ -35,7 +35,7 @@ export default function OpengraphImage() {
           }}
         >
           {logo ? (
-            <img src={logo} width={70} height={30} style={{ objectFit: "contain" }} alt="" />
+            <img src={logo} width={70} height={33} style={{ objectFit: "contain" }} alt="" />
           ) : (
             <span style={{ color: "#F6F2EC", fontSize: 40, fontFamily: "Georgia, serif" }}>DD</span>
           )}

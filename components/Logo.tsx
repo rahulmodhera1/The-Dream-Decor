@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-// Real mark.png/mark-light.png are ~271x116 (a wide "DD" monogram, not
+// Real mark.png/mark-light.png are ~303x144 (a wide "DD" monogram, not
 // square), so it's sized by height with width auto rather than forced into
 // a square box. Update these if the uploaded mark's proportions change.
-const MARK_WIDTH = 271;
-const MARK_HEIGHT = 116;
+const MARK_WIDTH = 303;
+const MARK_HEIGHT = 144;
 
 export function Monogram({ className, src }: { className?: string; src?: string | null }) {
   if (src) {
