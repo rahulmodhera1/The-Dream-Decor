@@ -90,7 +90,7 @@ export function Hero({
           </motion.span>
 
           <motion.h1 variants={item} className="flex flex-col items-center leading-none">
-            <span className="text-label mb-2 text-ivory/85">The</span>
+            <span className="font-script text-3xl text-ivory/90 sm:text-4xl">The</span>
             <span className="font-script text-6xl sm:text-8xl">Dream Decor</span>
           </motion.h1>
 
