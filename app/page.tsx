@@ -45,7 +45,7 @@ export default function Home() {
         <RevealGroup className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {teaserItems.map((item) => (
             <RevealItem key={item.id}>
-              <Card href="/portfolio" className="aspect-[3/4] overflow-hidden p-0">
+              <Card href="/portfolio" padding={false} className="aspect-[3/4] overflow-hidden">
                 <PlaceholderMedia
                   src={resolveImage(`portfolio/${item.slug}`)}
                   alt={item.title}
@@ -53,7 +53,7 @@ export default function Home() {
                   label={item.title}
                   caption={item.tags}
                   sample
-                  className="h-full w-full"
+                  className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </Card>
             </RevealItem>

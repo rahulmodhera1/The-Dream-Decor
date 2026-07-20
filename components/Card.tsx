@@ -6,13 +6,16 @@ export function Card({
   children,
   className,
   href,
+  padding = true,
 }: {
   children: ReactNode;
   className?: string;
   href?: string;
+  padding?: boolean;
 }) {
   const classes = cn(
-    "group relative rounded-2xl border border-line bg-ivory p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-lift",
+    "group relative rounded-2xl border border-line bg-ivory transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-lift",
+    padding && "p-8",
     className
   );
 

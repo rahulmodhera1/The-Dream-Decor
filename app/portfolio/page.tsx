@@ -27,7 +27,7 @@ export default function PortfolioPage() {
         align="center"
       />
 
-      <Section border={false} spacing="bottom-only">
+      <Section border={false}>
         <GalleryGrid items={items} />
       </Section>
 
