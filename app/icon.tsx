@@ -5,7 +5,7 @@ export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
 export default function Icon() {
-  const logo = resolveLogoDataUri();
+  const logo = resolveLogoDataUri("logo/mark-icon");
 
   return new ImageResponse(
     (

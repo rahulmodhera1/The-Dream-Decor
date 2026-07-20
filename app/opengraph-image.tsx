@@ -22,57 +22,72 @@ export default function OpengraphImage() {
             "radial-gradient(circle at 22% 25%, rgba(205,168,119,0.35), transparent 45%), radial-gradient(circle at 78% 75%, rgba(179,135,79,0.3), transparent 45%), #2B2A28",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            width: 96,
-            height: 96,
-            borderRadius: "50%",
-            border: "1.5px solid rgba(246,242,236,0.5)",
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: 28,
-          }}
-        >
-          {logo ? (
-            <img src={logo} width={70} height={33} style={{ objectFit: "contain" }} alt="" />
-          ) : (
-            <span style={{ color: "#F6F2EC", fontSize: 40, fontFamily: "Georgia, serif" }}>DD</span>
-          )}
-        </div>
-        <span
-          style={{
-            fontSize: 34,
-            letterSpacing: 10,
-            textTransform: "uppercase",
-            color: "#F6F2EC",
-            opacity: 0.85,
-          }}
-        >
-          The
-        </span>
-        <span
-          style={{
-            fontSize: 108,
-            fontStyle: "italic",
-            fontFamily: "Georgia, serif",
-            color: "#F6F2EC",
-            marginTop: 8,
-          }}
-        >
-          Dream Decor
-        </span>
-        <span
-          style={{
-            marginTop: 26,
-            fontSize: 24,
-            letterSpacing: 6,
-            textTransform: "uppercase",
-            color: "#CDA877",
-          }}
-        >
-          Event Styling & Decor in {siteConfig.location}
-        </span>
+        {logo ? (
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <img src={logo} width={520} height={298} style={{ objectFit: "contain" }} alt="" />
+            <span
+              style={{
+                marginTop: 12,
+                fontSize: 24,
+                letterSpacing: 6,
+                textTransform: "uppercase",
+                color: "#CDA877",
+              }}
+            >
+              Event Styling & Decor in {siteConfig.location}
+            </span>
+          </div>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <div
+              style={{
+                display: "flex",
+                width: 96,
+                height: 96,
+                borderRadius: "50%",
+                border: "1.5px solid rgba(246,242,236,0.5)",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: 28,
+              }}
+            >
+              <span style={{ color: "#F6F2EC", fontSize: 40, fontFamily: "Georgia, serif" }}>DD</span>
+            </div>
+            <span
+              style={{
+                fontSize: 34,
+                letterSpacing: 10,
+                textTransform: "uppercase",
+                color: "#F6F2EC",
+                opacity: 0.85,
+              }}
+            >
+              The
+            </span>
+            <span
+              style={{
+                fontSize: 108,
+                fontStyle: "italic",
+                fontFamily: "Georgia, serif",
+                color: "#F6F2EC",
+                marginTop: 8,
+              }}
+            >
+              Dream Decor
+            </span>
+            <span
+              style={{
+                marginTop: 26,
+                fontSize: 24,
+                letterSpacing: 6,
+                textTransform: "uppercase",
+                color: "#CDA877",
+              }}
+            >
+              Event Styling & Decor in {siteConfig.location}
+            </span>
+          </div>
+        )}
       </div>
     ),
     { ...size }

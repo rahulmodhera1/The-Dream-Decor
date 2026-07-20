@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { navLinks, services, siteConfig } from "@/lib/data";
-import { Monogram } from "@/components/Logo";
+import { LogoMark, Monogram } from "@/components/Logo";
 
 export function Footer({ logoSrc }: { logoSrc?: string | null }) {
   const year = new Date().getFullYear();
@@ -10,9 +10,15 @@ export function Footer({ logoSrc }: { logoSrc?: string | null }) {
       <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-20">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:pr-8">
-            <Link href="/" className="focus-ring flex items-center gap-2.5 rounded-sm" aria-label="The Dream Decor, home">
-              <Monogram src={logoSrc} className="h-8 text-ivory" />
-              <span className="font-script text-2xl">Dream Decor</span>
+            <Link href="/" className="focus-ring flex items-center rounded-sm" aria-label="The Dream Decor, home">
+              {logoSrc ? (
+                <LogoMark src={logoSrc} className="h-16" />
+              ) : (
+                <>
+                  <Monogram className="h-8 text-ivory" />
+                  <span className="ml-2.5 font-script text-2xl">Dream Decor</span>
+                </>
+              )}
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ivory/70">
               {siteConfig.description}

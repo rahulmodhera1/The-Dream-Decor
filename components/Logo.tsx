@@ -2,49 +2,42 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-// Real mark.png/mark-light.png are ~303x144 (a wide "DD" monogram, not
-// square), so it's sized by height with width auto rather than forced into
-// a square box. Update these if the uploaded mark's proportions change.
-const MARK_WIDTH = 303;
-const MARK_HEIGHT = 144;
+// The real uploaded lockup (monogram + "Dream Decor" script + tagline, all
+// one piece) is ~386x206. Update these if a differently-proportioned logo
+// file replaces it.
+const LOGO_WIDTH = 393;
+const LOGO_HEIGHT = 225;
 
-export function Monogram({ className, src }: { className?: string; src?: string | null }) {
-  if (src) {
+/**
+ * Renders the site's real uploaded logo (full lockup: monogram, script
+ * wordmark, and tagline together) when `src` is given. Sized by height with
+ * width auto so it keeps its true proportions instead of being squeezed
+ * into a square icon slot.
+ */
+export function LogoMark({ className, src, alt = "" }: { className?: string; src: string; alt?: string }) {
+  if (src.endsWith(".svg")) {
     // Local SVGs render as a plain <img>: vector art doesn't benefit from
-    // next/image's raster optimization pipeline, so this skips it entirely,
-    // and the browser sizes it from its own intrinsic aspect ratio.
-    if (src.endsWith(".svg")) {
-      return (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt="" className={cn("h-9 w-auto object-contain", className)} />
-      );
-    }
-    return (
-      <Image
-        src={src}
-        alt=""
-        width={MARK_WIDTH}
-        height={MARK_HEIGHT}
-        className={cn("h-9 w-auto object-contain", className)}
-      />
-    );
+    // next/image's raster optimization, and the browser sizes it from its
+    // own intrinsic aspect ratio.
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={src} alt={alt} className={cn("h-9 w-auto object-contain", className)} />;
   }
-
   return (
-    <svg
-      viewBox="0 0 64 64"
-      className={cn("aspect-square h-9", className)}
-      aria-hidden="true"
-    >
-      <circle
-        cx="32"
-        cy="32"
-        r="30"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1"
-        opacity="0.55"
-      />
+    <Image
+      src={src}
+      alt={alt}
+      width={LOGO_WIDTH}
+      height={LOGO_HEIGHT}
+      className={cn("h-9 w-auto object-contain", className)}
+    />
+  );
+}
+
+/** Hand-drawn placeholder monogram, used only until a real logo is uploaded. */
+export function Monogram({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 64 64" className={cn("aspect-square h-9", className)} aria-hidden="true">
+      <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.55" />
       <text
         x="24"
         y="41"
@@ -82,10 +75,10 @@ export function Wordmark({ className }: { className?: string }) {
   );
 }
 
-export function StackedLockup({ className, logoSrc }: { className?: string; logoSrc?: string | null }) {
+export function StackedLockup({ className }: { className?: string }) {
   return (
     <div className={cn("flex flex-col items-center text-center", className)}>
-      <Monogram src={logoSrc} className="mb-4 h-14" />
+      <Monogram className="mb-4 h-14" />
       <span className="text-label mb-1">The</span>
       <span className="font-script text-5xl leading-none sm:text-6xl">Dream Decor</span>
       <span className="text-label mt-4 opacity-70">Event Styling &amp; Design · Surrey, BC</span>
@@ -98,13 +91,20 @@ export function Logo({ className, logoSrc }: { className?: string; logoSrc?: str
     <Link
       href="/"
       className={cn(
-        "focus-ring flex items-center gap-2.5 rounded-sm text-charcoal transition-opacity hover:opacity-70",
+        "focus-ring flex items-center rounded-sm text-charcoal transition-opacity hover:opacity-70",
+        !logoSrc && "gap-2.5",
         className
       )}
       aria-label="The Dream Decor, home"
     >
-      <Monogram src={logoSrc} className="h-8" />
-      <Wordmark />
+      {logoSrc ? (
+        <LogoMark src={logoSrc} className="h-14 sm:h-16" />
+      ) : (
+        <>
+          <Monogram className="h-8" />
+          <Wordmark />
+        </>
+      )}
     </Link>
   );
 }
