@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/Button";
 import { MagneticButton } from "@/components/MagneticButton";
-import { LogoMark } from "@/components/Logo";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -22,11 +21,9 @@ const item = {
 export function Hero({
   imageSrc,
   videoSrc,
-  logoSrc,
 }: {
   imageSrc?: string | null;
   videoSrc?: string | null;
-  logoSrc?: string | null;
 }) {
   const ref = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -92,16 +89,10 @@ export function Hero({
             Event Styling, Backdrops &amp; Decor
           </motion.span>
 
-          {logoSrc ? (
-            <motion.h1 variants={item}>
-              <LogoMark src={logoSrc} alt="The Dream Decor" className="h-32 sm:h-44" />
-            </motion.h1>
-          ) : (
-            <motion.h1 variants={item} className="flex flex-col items-center leading-none">
-              <span className="text-label mb-2 text-ivory/85">The</span>
-              <span className="font-script text-6xl sm:text-8xl">Dream Decor</span>
-            </motion.h1>
-          )}
+          <motion.h1 variants={item} className="flex flex-col items-center leading-none">
+            <span className="text-label mb-2 text-ivory/85">The</span>
+            <span className="font-script text-6xl sm:text-8xl">Dream Decor</span>
+          </motion.h1>
 
           <motion.p variants={item} className="mt-8 max-w-xl text-balance text-base leading-relaxed text-ivory/80 sm:text-lg">
             Bespoke event styling, backdrops, and full decor packages for weddings, birthdays, baby showers,
