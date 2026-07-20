@@ -10,7 +10,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-20">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:pr-8">
-            <Link href="/" className="focus-ring flex items-center gap-2.5 rounded-sm" aria-label="The Dream Decor — home">
+            <Link href="/" className="focus-ring flex items-center gap-2.5 rounded-sm" aria-label="The Dream Decor, home">
               <Monogram className="h-8 w-8 text-ivory" />
               <span className="font-script text-2xl">Dream Decor</span>
             </Link>

@@ -26,12 +26,12 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Event Styling & Decor in Surrey, BC`,
+    title: `${siteConfig.name}, Event Styling & Decor in Surrey, BC`,
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Event Styling & Decor in Surrey, BC`,
+    title: `${siteConfig.name}, Event Styling & Decor in Surrey, BC`,
     description: siteConfig.description,
   },
   alternates: {

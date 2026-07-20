@@ -42,7 +42,7 @@ export const services: Service[] = [
     title: "Event Styling",
     summary: "Creative direction and on-site styling from first sketch to final teardown.",
     description:
-      "From mood board to move-out, we design a cohesive visual story for your event — palette, texture, and flow — then bring it to life on site so every corner feels considered.",
+      "From mood board to move-out, we design a cohesive visual story for your event, in palette, texture, and flow, then bring it to life on site so every corner feels considered.",
     features: [
       "Concept development & mood boards",
       "Colour palette & theme design",
@@ -56,7 +56,7 @@ export const services: Service[] = [
     title: "Backdrops",
     summary: "Statement backdrops built to be photographed from every angle.",
     description:
-      "Backdrops are where your event's first impression lives. We design and build custom installations — floral, draped, or illuminated — sized and styled for your exact space.",
+      "Backdrops are where your event's first impression lives. We design and build custom installations, floral, draped, or illuminated, sized and styled for your exact space.",
     features: [
       "Floral & greenery walls",
       "Drape & frame installations",
@@ -70,7 +70,7 @@ export const services: Service[] = [
     title: "Full Decor Packages",
     summary: "End-to-end venue transformation, handled entirely by our team.",
     description:
-      "For hosts who want to hand off the full vision, our decor packages bundle styling, rentals, florals, and lighting into one seamless, fully-managed experience.",
+      "For hosts who want to hand off the full vision, our decor packages bundle styling, rentals, florals, and lighting into one fully-managed experience.",
     features: [
       "Venue walkthrough & design plan",
       "Furniture & prop rentals",
@@ -92,7 +92,7 @@ export const occasions: Occasion[] = [
     slug: "weddings",
     title: "Weddings",
     description:
-      "Ceremony arches, sweetheart tables, and reception styling — traditional, modern, or a blend of both.",
+      "Ceremony arches, sweetheart tables, and reception styling, traditional, modern, or a blend of both.",
   },
   {
     slug: "birthdays",
@@ -116,7 +116,7 @@ export const occasions: Occasion[] = [
     slug: "cultural",
     title: "Cultural Celebrations",
     description:
-      "Mehndi, sangeet, Diwali, Eid, quinceañeras and more — styled with cultural authenticity and care.",
+      "Mehndi, sangeet, Diwali, Eid, quinceañeras and more, styled with cultural authenticity and care.",
   },
 ];
 
@@ -143,7 +143,7 @@ export const galleryItems: GalleryItem[] = [
   { id: "g1", title: "Blush Garden Wedding", category: "wedding", tags: "Reception · Surrey, BC", hue: 18 },
   { id: "g2", title: "Golden Hour Mandap", category: "cultural", tags: "Ceremony · Cloverdale, BC", hue: 38 },
   { id: "g3", title: "Pastel Baby Shower Arch", category: "baby-shower", tags: "Balloon Install", hue: 200 },
-  { id: "g4", title: "Sequin Backdrop — Milestone 30th", category: "birthday", tags: "Backdrop", hue: 320 },
+  { id: "g4", title: "Sequin Backdrop, Milestone 30th", category: "birthday", tags: "Backdrop", hue: 320 },
   { id: "g5", title: "Corporate Gala Stage", category: "corporate", tags: "Step & Repeat", hue: 230 },
   { id: "g6", title: "Sangeet Night Florals", category: "cultural", tags: "Stage Styling", hue: 12 },
   { id: "g7", title: "Boho Bridal Lounge", category: "wedding", tags: "Lounge Styling", hue: 28 },

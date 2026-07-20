@@ -27,7 +27,7 @@ export default function TestimonialsPage() {
       </Section>
 
       <Section tone="soft">
-        <SectionHeading eyebrow="In Their Words" title="More from clients we've styled for" align="center" />
+        <SectionHeading title="More from clients we've styled for" align="center" />
 
         <RevealGroup className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t) => (
@@ -44,7 +44,6 @@ export default function TestimonialsPage() {
       </Section>
 
       <CtaBanner
-        eyebrow="Join Our Clients"
         title="Ready to plan your own celebration?"
         description="Let's talk about your date, your vision, and how we can bring it to life."
       />

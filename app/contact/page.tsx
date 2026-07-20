@@ -17,7 +17,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Let's start planning"
-        description="Share a few details about your event and we'll follow up within 1–2 business days."
+        description="Share a few details about your event and we'll follow up within 1-2 business days."
       />
 
       <Section>
@@ -57,8 +57,8 @@ export default function ContactPage() {
 
             <div className="border-t border-line pt-8">
               <p className="text-sm text-charcoal-faint">
-                Booking 4–8 weeks out is typical for full decor packages; peak wedding season (May–September) fills
-                up faster, so reach out early.
+                Booking 4-8 weeks out is typical for full decor packages; peak wedding season (May to September)
+                fills up faster, so reach out early.
               </p>
             </div>
           </Reveal>

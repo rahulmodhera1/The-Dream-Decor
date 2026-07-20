@@ -75,7 +75,7 @@ export function GalleryGrid() {
       </motion.div>
 
       {filtered.length === 0 && (
-        <p className="mt-16 text-center text-charcoal-soft">No pieces in this category just yet — check back soon.</p>
+        <p className="mt-16 text-center text-charcoal-soft">No pieces in this category just yet, check back soon.</p>
       )}
 
       <Lightbox items={filtered} index={openIndex} onClose={() => setOpenIndex(null)} onNavigate={navigate} />

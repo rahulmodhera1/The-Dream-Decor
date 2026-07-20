@@ -47,7 +47,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About Us"
         title="A studio built around how a room feels"
-        description="Based in Surrey, BC, The Dream Decor designs and builds event styling that feels personal — never off-the-shelf."
+        description="Based in Surrey, BC, The Dream Decor designs and builds event styling that feels personal, never off-the-shelf."
       />
 
       <Section>
@@ -62,14 +62,14 @@ export default function AboutPage() {
             <h2 className="text-balance text-4xl font-medium sm:text-5xl">From weekend passion to full studio</h2>
             <div className="mt-5 space-y-4 text-balance leading-relaxed text-charcoal-soft">
               <p>
-                The Dream Decor started small — styling friends&apos; and family&apos;s celebrations around Surrey,
+                The Dream Decor started small, styling friends&apos; and family&apos;s celebrations around Surrey,
                 one backdrop and one tablescape at a time. What stayed consistent was the reaction: guests walking
                 in and pausing, just for a second, to take it all in.
               </p>
               <p>
                 That reaction is still what we design for. Today we work across weddings, milestone birthdays,
-                baby showers, corporate events, and cultural celebrations, but the process hasn&apos;t changed —
-                we listen first, then build a styling plan around your venue, your palette, and the moments that
+                baby showers, corporate events, and cultural celebrations, but the process hasn&apos;t changed.
+                We listen first, then build a styling plan around your venue, your palette, and the moments that
                 matter most to you.
               </p>
             </div>
@@ -78,13 +78,13 @@ export default function AboutPage() {
       </Section>
 
       <Section tone="soft">
-        <SectionHeading eyebrow="Style Philosophy" title="What guides every setup we design" align="center" />
+        <SectionHeading title="What guides every setup we design" align="center" />
 
         <RevealGroup className="mt-14 grid grid-cols-1 divide-y divide-line border border-line sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
-          {pillars.map((pillar, i) => (
+          {pillars.map((pillar) => (
             <RevealItem key={pillar.title}>
               <div className="flex h-full flex-col gap-6 p-8">
-                <span className="text-label text-gold-dark">{String(i + 1).padStart(2, "0")}</span>
+                <span className="block h-px w-8 bg-gold" aria-hidden="true" />
                 <div>
                   <h3 className="font-display text-xl italic">{pillar.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-charcoal-soft">{pillar.description}</p>
@@ -98,11 +98,10 @@ export default function AboutPage() {
       <Section>
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal>
-            <p className="text-label mb-4 text-gold-dark">Where We Work</p>
             <h2 className="text-balance text-4xl font-medium sm:text-5xl">Proudly based in Surrey, BC</h2>
             <p className="mt-5 max-w-md text-balance leading-relaxed text-charcoal-soft">
               We&apos;re rooted in Surrey and travel throughout Metro Vancouver and the Fraser Valley for the right
-              event. Don&apos;t see your city listed? Reach out — we likely still cover it.
+              event. Don&apos;t see your city listed? Reach out, we likely still cover it.
             </p>
             <ul className="mt-8 flex flex-wrap gap-2">
               {serviceCities.map((city) => (
@@ -124,9 +123,8 @@ export default function AboutPage() {
       </Section>
 
       <CtaBanner
-        eyebrow="Get In Touch"
         title="Let's bring your vision to life"
-        description="We'd love to hear about your event — reach out and let's start designing."
+        description="We'd love to hear about your event. Reach out and let's start designing."
       />
     </>
   );

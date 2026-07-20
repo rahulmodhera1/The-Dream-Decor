@@ -29,6 +29,8 @@ function OccasionIcon({ slug }: { slug: string }) {
   );
 }
 
+const [eventStyling, backdrops, fullDecorPackages] = services;
+
 export default function ServicesPage() {
   return (
     <>
@@ -38,47 +40,79 @@ export default function ServicesPage() {
         description="Whether you need a single statement backdrop or a fully transformed venue, we tailor every service to your event, your space, and your story."
       />
 
-      <div>
-        {services.map((service, i) => (
-          <Section
-            key={service.slug}
-            id={service.slug}
-            tone={i % 2 === 1 ? "soft" : "ivory"}
-            className="scroll-mt-24"
-          >
-            <div
-              className={`grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20 ${
-                i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
-              }`}
-            >
-              <Reveal>
-                <div className="aspect-[4/3] overflow-hidden rounded-2xl">
-                  <PlaceholderMedia hue={20 + i * 40} label={service.title} sample className="h-full w-full" />
-                </div>
-              </Reveal>
-              <Reveal delay={0.1}>
-                <p className="text-label mb-4 text-gold-dark">{String(i + 1).padStart(2, "0")} · Service</p>
-                <h2 className="text-balance text-4xl font-medium sm:text-5xl">{service.title}</h2>
-                <p className="mt-5 text-balance leading-relaxed text-charcoal-soft">{service.description}</p>
-                <ul className="mt-8 space-y-3">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-sm text-charcoal">
-                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
+      <Section id={eventStyling.slug} className="scroll-mt-24">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
+          <Reveal>
+            <div className="aspect-[4/3] overflow-hidden rounded-2xl">
+              <PlaceholderMedia hue={20} label={eventStyling.title} sample className="h-full w-full" />
             </div>
-          </Section>
-        ))}
-      </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <span className="mb-4 block h-px w-8 bg-gold" aria-hidden="true" />
+            <h2 className="text-balance text-4xl font-medium sm:text-5xl">{eventStyling.title}</h2>
+            <p className="mt-5 text-balance leading-relaxed text-charcoal-soft">{eventStyling.description}</p>
+            <ul className="mt-8 space-y-3">
+              {eventStyling.features.map((feature) => (
+                <li key={feature} className="flex items-start gap-3 text-sm text-charcoal">
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section id={backdrops.slug} tone="soft" className="scroll-mt-24">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
+          <Reveal className="lg:order-2">
+            <div className="aspect-[4/3] overflow-hidden rounded-2xl">
+              <PlaceholderMedia hue={60} label={backdrops.title} sample className="h-full w-full" />
+            </div>
+          </Reveal>
+          <Reveal delay={0.1} className="lg:order-1">
+            <span className="mb-4 block h-px w-8 bg-gold" aria-hidden="true" />
+            <h2 className="text-balance text-4xl font-medium sm:text-5xl">{backdrops.title}</h2>
+            <p className="mt-5 text-balance leading-relaxed text-charcoal-soft">{backdrops.description}</p>
+            <ul className="mt-8 space-y-3">
+              {backdrops.features.map((feature) => (
+                <li key={feature} className="flex items-start gap-3 text-sm text-charcoal">
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section id={fullDecorPackages.slug} tone="charcoal" className="relative scroll-mt-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <PlaceholderMedia hue={150} className="h-full w-full" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/85 to-charcoal/50" />
+        </div>
+
+        <Reveal className="relative mx-auto max-w-2xl text-center">
+          <span className="mx-auto mb-4 block h-px w-8 bg-gold" aria-hidden="true" />
+          <h2 className="text-balance text-4xl font-medium sm:text-5xl">{fullDecorPackages.title}</h2>
+          <p className="mx-auto mt-5 max-w-xl text-balance leading-relaxed text-ivory/80">
+            {fullDecorPackages.description}
+          </p>
+          <ul className="mx-auto mt-9 grid max-w-lg grid-cols-1 gap-x-8 gap-y-3 text-left sm:grid-cols-2">
+            {fullDecorPackages.features.map((feature) => (
+              <li key={feature} className="flex items-start gap-3 text-sm text-ivory/90">
+                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </Section>
 
       <Section id="occasions" tone="soft" className="scroll-mt-24">
         <SectionHeading
-          eyebrow="Occasions"
           title="Every milestone, thoughtfully styled"
-          description="Our styling approach flexes to the occasion — here's where we spend most of our time."
+          description="Our styling approach flexes to the occasion. Here's where we spend most of our time."
           align="center"
         />
 
@@ -98,7 +132,6 @@ export default function ServicesPage() {
       </Section>
 
       <CtaBanner
-        eyebrow="Start Planning"
         title="Have an occasion in mind?"
         description="Share your date and vision, and we'll put together a styling plan built around it."
       />

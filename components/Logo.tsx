@@ -73,7 +73,7 @@ export function Logo({ className }: { className?: string }) {
         "focus-ring flex items-center gap-2.5 rounded-sm text-charcoal transition-opacity hover:opacity-70",
         className
       )}
-      aria-label="The Dream Decor — home"
+      aria-label="The Dream Decor, home"
     >
       <Monogram className="h-8 w-8" />
       <Wordmark />

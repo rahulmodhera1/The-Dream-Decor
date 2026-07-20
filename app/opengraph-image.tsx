@@ -64,7 +64,7 @@ export default function OpengraphImage() {
             color: "#CDA877",
           }}
         >
-          Event Styling · Backdrops · Decor · {siteConfig.location}
+          Event Styling & Decor in {siteConfig.location}
         </span>
       </div>
     ),

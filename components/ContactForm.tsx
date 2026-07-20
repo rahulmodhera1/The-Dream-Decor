@@ -90,7 +90,7 @@ export function ContactForm() {
           required
           rows={5}
           className={fieldClasses}
-          placeholder="Venue, guest count, colour palette — anything that helps us picture it."
+          placeholder="Venue, guest count, colour palette, anything that helps us picture it."
         />
       </div>
 

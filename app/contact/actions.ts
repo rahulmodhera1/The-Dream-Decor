@@ -36,6 +36,6 @@ export async function submitInquiry(
 
   return {
     status: "success",
-    message: "Thank you! Your inquiry has been received — we'll reply within 1–2 business days.",
+    message: "Thank you! Your inquiry has been received, we'll reply within 1-2 business days.",
   };
 }

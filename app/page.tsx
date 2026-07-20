@@ -1,4 +1,5 @@
 import { Hero } from "@/components/Hero";
+import { Marquee } from "@/components/Marquee";
 import { Section, SectionHeading } from "@/components/Section";
 import { ServiceHighlights } from "@/components/ServiceHighlights";
 import { Card } from "@/components/Card";
@@ -17,15 +18,16 @@ export default function Home() {
     <>
       <Hero />
 
+      <Marquee />
+
       <Section border={false} spacing="none">
         <ServiceHighlights />
       </Section>
 
       <Section tone="soft">
         <SectionHeading
-          eyebrow="Recent Work"
           title="A glimpse of the moments we've styled"
-          description="From intimate baby showers to full wedding transformations — every setup is designed around the story you want to tell."
+          description="From intimate baby showers to full wedding transformations, every setup is designed around the story you want to tell."
         />
 
         <RevealGroup className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
@@ -64,10 +66,9 @@ export default function Home() {
               Designed in Surrey, styled across the Lower Mainland
             </h2>
             <p className="mt-5 text-balance leading-relaxed text-charcoal-soft">
-              The Dream Decor began with a simple belief — that the way a room feels matters as much as how it
-              looks. What started as styling for friends&apos; celebrations has grown into a full-service studio,
-              trusted to bring weddings, milestone birthdays, and corporate events to life across Surrey, BC and
-              beyond.
+              The Dream Decor began with a simple belief: the way a room feels matters as much as how it looks.
+              What started as styling for friends&apos; celebrations has grown into a full-service studio, trusted
+              to bring weddings, milestone birthdays, and corporate events to life across Surrey, BC and beyond.
             </p>
             <div className="mt-8">
               <Button href="/about" variant="secondary" withArrow>
@@ -79,7 +80,7 @@ export default function Home() {
       </Section>
 
       <Section tone="soft">
-        <SectionHeading eyebrow="Testimonials" title="What our clients say" align="center" />
+        <SectionHeading title="What our clients say" align="center" />
         <div className="mt-14">
           <TestimonialCarousel />
         </div>

@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/Button";
+import { MagneticButton } from "@/components/MagneticButton";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -53,7 +54,7 @@ export function Hero() {
       >
         <motion.div variants={container} initial="hidden" animate="visible" className="flex flex-col items-center">
           <motion.span variants={item} className="text-label mb-6 text-ivory/70">
-            Event Styling · Backdrops · Decor — Surrey, BC
+            Event Styling & Decor, Surrey BC
           </motion.span>
 
           <motion.h1 variants={item} className="flex flex-col items-center leading-none">
@@ -67,9 +68,11 @@ export function Hero() {
           </motion.p>
 
           <motion.div variants={item} className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button href="/contact" size="lg" withArrow>
-              Book a Consultation
-            </Button>
+            <MagneticButton>
+              <Button href="/contact" size="lg" withArrow>
+                Book a Consultation
+              </Button>
+            </MagneticButton>
             <Button
               href="/portfolio"
               size="lg"
@@ -80,20 +83,6 @@ export function Hero() {
             </Button>
           </motion.div>
         </motion.div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
-        aria-hidden="true"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="h-10 w-px bg-ivory/40"
-        />
       </motion.div>
     </section>
   );

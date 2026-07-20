@@ -16,7 +16,7 @@ export default function PortfolioPage() {
       <PageHeader
         eyebrow="Portfolio"
         title="A curated look at our work"
-        description="Filter by occasion to see how we've styled celebrations across Surrey and the Lower Mainland. Sample imagery shown — full gallery coming soon."
+        description="Filter by occasion to see how we've styled celebrations across Surrey and the Lower Mainland. Sample imagery shown, full gallery coming soon."
         align="center"
       />
 
@@ -25,7 +25,6 @@ export default function PortfolioPage() {
       </Section>
 
       <CtaBanner
-        eyebrow="Like What You See?"
         title="Let's design something just as beautiful for you"
         description="Every setup starts with a conversation. Tell us about your event and we'll take it from there."
       />
