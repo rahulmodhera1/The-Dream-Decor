@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/Button";
 import { MagneticButton } from "@/components/MagneticButton";
+import { Monogram } from "@/components/Logo";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -21,9 +22,11 @@ const item = {
 export function Hero({
   imageSrc,
   videoSrc,
+  logoSrc,
 }: {
   imageSrc?: string | null;
   videoSrc?: string | null;
+  logoSrc?: string | null;
 }) {
   const ref = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -85,8 +88,14 @@ export function Hero({
         className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 text-center"
       >
         <motion.div variants={container} initial="hidden" animate="visible" className="flex flex-col items-center">
+          {logoSrc && (
+            <motion.div variants={item} className="mb-7">
+              <Monogram src={logoSrc} className="h-12 sm:h-14" />
+            </motion.div>
+          )}
+
           <motion.span variants={item} className="text-label mb-6 text-ivory/70">
-            Event Styling & Decor, Surrey BC
+            Event Styling, Backdrops &amp; Decor
           </motion.span>
 
           <motion.h1 variants={item} className="flex flex-col items-center leading-none">
@@ -113,6 +122,19 @@ export function Hero({
             >
               View Portfolio
             </Button>
+          </motion.div>
+
+          <motion.div variants={item} className="mt-9 flex items-center gap-2 text-ivory/60">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M8 14.5S13 9.86 13 6.5A5 5 0 0 0 3 6.5C3 9.86 8 14.5 8 14.5Z"
+                stroke="currentColor"
+                strokeWidth="1.2"
+                strokeLinejoin="round"
+              />
+              <circle cx="8" cy="6.5" r="1.8" stroke="currentColor" strokeWidth="1.2" />
+            </svg>
+            <span className="text-label">Surrey, BC &amp; the Lower Mainland</span>
           </motion.div>
         </motion.div>
       </motion.div>

@@ -51,7 +51,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const logoSrc = resolveLogoImage();
+  const logoSrc = resolveLogoImage("logo/mark");
+  const logoSrcLight = resolveLogoImage("logo/mark-light");
 
   return (
     <html
@@ -59,9 +60,9 @@ export default function RootLayout({
       className={`${cormorant.variable} ${parisienne.variable} ${inter.variable} antialiased`}
     >
       <body className="flex min-h-screen flex-col bg-ivory font-sans text-charcoal">
-        <Nav logoSrc={logoSrc} />
+        <Nav logoSrc={logoSrc} logoSrcLight={logoSrcLight} />
         <main className="flex-1">{children}</main>
-        <Footer logoSrc={logoSrc} />
+        <Footer logoSrc={logoSrcLight} />
         <Toaster
           position="bottom-center"
           toastOptions={{

@@ -21,7 +21,7 @@ export default function Icon() {
         }}
       >
         {logo ? (
-          <img src={logo} width={26} height={26} style={{ objectFit: "contain" }} alt="" />
+          <img src={logo} width={26} height={11} style={{ objectFit: "contain" }} alt="" />
         ) : (
           <span
             style={{

@@ -5,7 +5,7 @@ export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
 export default function AppleIcon() {
-  const logo = resolveLogoDataUri();
+  const logo = resolveLogoDataUri("logo/mark-light");
 
   return new ImageResponse(
     (
@@ -32,7 +32,7 @@ export default function AppleIcon() {
           }}
         >
           {logo ? (
-            <img src={logo} width={120} height={120} style={{ objectFit: "contain" }} alt="" />
+            <img src={logo} width={130} height={56} style={{ objectFit: "contain" }} alt="" />
           ) : (
             <span
               style={{

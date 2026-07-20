@@ -10,18 +10,19 @@ import { CtaBanner } from "@/components/CtaBanner";
 import { Button } from "@/components/Button";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { galleryItems, siteConfig } from "@/lib/data";
-import { resolveImage, resolveVideo } from "@/lib/media";
+import { resolveImage, resolveVideo, resolveLogoImage } from "@/lib/media";
 
 const teaserItems = galleryItems.slice(0, 4);
 
 export default function Home() {
   const heroImage = resolveImage("hero/hero");
   const heroVideo = resolveVideo("hero/hero");
+  const heroLogo = resolveLogoImage("logo/mark-light");
   const studioImage = resolveImage("about/studio");
 
   return (
     <>
-      <Hero imageSrc={heroImage} videoSrc={heroVideo} />
+      <Hero imageSrc={heroImage} videoSrc={heroVideo} logoSrc={heroLogo} />
 
       <Marquee />
 

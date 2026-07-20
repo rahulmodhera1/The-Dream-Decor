@@ -11,7 +11,7 @@ export function Footer({ logoSrc }: { logoSrc?: string | null }) {
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:pr-8">
             <Link href="/" className="focus-ring flex items-center gap-2.5 rounded-sm" aria-label="The Dream Decor, home">
-              <Monogram src={logoSrc} className="h-8 w-8 text-ivory" />
+              <Monogram src={logoSrc} className="h-8 text-ivory" />
               <span className="font-script text-2xl">Dream Decor</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ivory/70">

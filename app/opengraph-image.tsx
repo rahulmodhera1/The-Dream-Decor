@@ -6,7 +6,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpengraphImage() {
-  const logo = resolveLogoDataUri();
+  const logo = resolveLogoDataUri("logo/mark-light");
 
   return new ImageResponse(
     (
@@ -35,7 +35,7 @@ export default function OpengraphImage() {
           }}
         >
           {logo ? (
-            <img src={logo} width={64} height={64} style={{ objectFit: "contain" }} alt="" />
+            <img src={logo} width={70} height={30} style={{ objectFit: "contain" }} alt="" />
           ) : (
             <span style={{ color: "#F6F2EC", fontSize: 40, fontFamily: "Georgia, serif" }}>DD</span>
           )}
